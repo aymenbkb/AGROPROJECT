@@ -286,7 +286,7 @@ strong {
 .custom-text-box {
   background: var(--white-color);
   border-radius: var(--border-radius-medium);
-  margin-bottom: 24px;
+  margin-bottom: 60px;
   padding: 40px;
   height: 90%;
   z-index: 10;
@@ -1770,6 +1770,19 @@ blockquote::before {
   .carousel-control-prev-icon {
     width: 2.5rem;
     height: 2.5rem;
+  }
+  .featured-block {
+    text-align: center;
+    transition: all 0.5s ease;
+    min-height: 206px;
+    padding: 15px;
+  }
+
+  .featured-block-image {
+    width: 70%;
+    display: block;
+    margin: auto;
+    transition: all 0.5s;
   }
 
   .volunteer-image {
