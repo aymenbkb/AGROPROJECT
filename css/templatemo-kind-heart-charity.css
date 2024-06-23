@@ -368,6 +368,7 @@ strong {
   NAVIGATION              
 -----------------------------------------*/
 .navbar {
+  text-align: center;
   width: 95%;
   margin: 2%;
   position: fixed;
@@ -394,11 +395,13 @@ strong {
 }
 
 .navbar-brand span {
+  text-align: left;
   display: inline-block;
   vertical-align: middle;
 }
 
 .navbar-brand small {
+  text-align: left;
   color: #3C7A45;
   display: block;
   font-size: 10px;
@@ -1716,6 +1719,9 @@ blockquote::before {
   }
   .navbar-brand {
     font-size: calc(var(--h6-font-size) - 8px); /* Adjust font size */
+  }
+  .navbar-brand span {
+    font-size: 18px; /* Adjust font size */
   }
   .navbar-brand small {
     font-size: 8px; /* Adjust font size */
