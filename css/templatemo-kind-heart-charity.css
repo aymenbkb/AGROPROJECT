@@ -1547,6 +1547,20 @@ blockquote::before {
     padding-bottom: 4rem;
   }
 
+  .featured-block {
+    text-align: center;
+    transition: all 0.5s ease;
+    min-height: 206px;
+    padding: 15px;
+  }
+
+  .featured-block-image {
+    width: 70%;
+    display: block;
+    margin: auto;
+    transition: all 0.5s;
+  }
+
   .hero-form {
     padding-bottom: 3rem;
   }
@@ -1558,6 +1572,11 @@ blockquote::before {
   .navbar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  .navbar-hidden {
+    transform: translateY(-90%);
+    transition: transform 0.3s ease-in;
   }
 
   .navbar-expand-lg .navbar-nav {
@@ -1717,6 +1736,21 @@ blockquote::before {
     min-width: inherit;
     font-size: 0.8rem; /* Adjust font size for hero caption */
   }
+
+  .featured-block {
+    text-align: center;
+    transition: all 0.5s ease;
+    min-height: 206px;
+    padding: 15px;
+  }
+
+  .featured-block-image {
+    width: 70%;
+    display: block;
+    margin: auto;
+    transition: all 0.5s;
+  }
+
   .navbar-brand {
     font-size: calc(var(--h6-font-size) - 8px); /* Adjust font size */
   }
@@ -1730,6 +1764,10 @@ blockquote::before {
     padding: 5px 14px; /* Adjust padding */
     flex-direction: column; /* Stack elements vertically */
     align-items: flex-start;
+  }
+  .navbar-hidden {
+    transform: translateY(-120%);
+    transition: transform 0.3s ease-in;
   }
   .navbar-brand {
     font-size: calc(var(--h6-font-size) - 2px); /* Adjust font size */
@@ -1766,6 +1804,10 @@ blockquote::before {
   }
   .navbar-brand {
     font-size: calc(var(--h6-font-size) - 8px); /* Adjust font size */
+  }
+  .navbar-hidden {
+    transform: translateY(-140%);
+    transition: transform 0.3s ease-in;
   }
   .logo {
     width: 40px; /* Adjust logo size */
