@@ -121,9 +121,9 @@ h2 {
   color: var(--secondary-color);
   letter-spacing: -2px;
 }
-h2:hover{
+/* h2:hover{
   color :#3C7A45;
-}
+} */
 
 h3 {
   font-size: var(--h3-font-size);
@@ -141,7 +141,15 @@ h5 {
 h6 {
   font-size: var(--h6-font-size);
 }
-
+strong{
+  font-weight: var(--font-weight-bold);
+  color:#04365B;
+}
+span{
+  color: var(--custom-btn-bg-color);
+  font-size: var(--h6-font-size);
+  font-weight: var(--font-weight-bold);
+}
 p {
   color: var(--p-color);
   font-size: var(--p-font-size);
@@ -218,6 +226,9 @@ strong {
 
 .custom-block-body {
   padding: 30px;
+}
+.custom-block-body p {
+  font-size: 12px;
 }
 
 .custom-block-image {
@@ -670,16 +681,15 @@ strong {
   transition: all 0.5s;
 }
 
-.featured-block:hover .featured-block-text {
-  margin-top: 0;
-  color: #3c7a45;
+.featured-block-text {
+  opacity: 0;
+  transition: opacity 0.5s, margin-top 0.5s;
+  margin-top: 20px;
 }
 
-.featured-block-text {
-  color: #3c7a4500;
-  font-size: var(--h5-font-size);
-  margin-top: 20px;
-  transition: all 0.5s;
+.featured-block:hover .featured-block-text {
+  opacity: 1;
+  margin-top: 0;
 }
 
 
