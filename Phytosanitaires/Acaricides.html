@@ -140,7 +140,17 @@
             });
             </script> 
     </nav>
-
+    <section class="image-section">
+        <div class="col-lg-12 col-12 p-0">
+                <div class="image-container">
+                    <img id="background-image" src="/images/petit-image/Untitled design (1).webp" alt="Background Image">
+                <div class="overlay-container">
+                     <img class="overlay-image" src="images/icon/Green_Modern_Podcast_Youtube_Icon__2_-removebg-preview.png" alt="Overlay Image">
+                </div>
+                </div>
+                        
+        </div>
+    </section>
     <div id="product" style="cursor: pointer;" click()></div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -148,46 +158,65 @@
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
         import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
+    
         const firebaseConfig = {
-    apiKey: "AIzaSyBj8molb1_4DDGhwQyfdKeR4HH7jJjPWjM",
-    authDomain: "prosemagro.firebaseapp.com",
-    databaseURL: "https://prosemagro-default-rtdb.firebaseio.com",
-    projectId: "prosemagro",
-    storageBucket: "prosemagro.appspot.com",
-    messagingSenderId: "210148411864",
-    appId: "1:210148411864:web:898f06e0863ad28e1d0aad",
-    measurementId: "G-050MB87EC4"
-  };
-
-
+            apiKey: "AIzaSyBj8molb1_4DDGhwQyfdKeR4HH7jJjPWjM",
+            authDomain: "prosemagro.firebaseapp.com",
+            databaseURL: "https://prosemagro-default-rtdb.firebaseio.com",
+            projectId: "prosemagro",
+            storageBucket: "prosemagro.appspot.com",
+            messagingSenderId: "210148411864",
+            appId: "1:210148411864:web:898f06e0863ad28e1d0aad",
+            measurementId: "G-050MB87EC4"
+        };
+    
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth();
         const storage = getStorage(app);
         const database = getDatabase(app);
-
-     
-    function fetchAndDisplayPulverisateur() {
-const productRef = ref(database, 'phytosanitaires/acaricides');
-onValue(productRef, (snapshot) => {
-    const data = snapshot.val();
-    const acaricides = Object.entries(data).map(([key, value]) => ({
-        ...value,
-        id: key
-    }));
-    document.getElementById("product").innerHTML = acaricides.map(product =>
-  
-        `<div class="product">
-            <h2>${product.name}</h2>
-            <img class="image" src="${product.imageSrc}" alt="${product.name}">
-        </div>`
-    ).join('');
-});
-}
-
-document.addEventListener('DOMContentLoaded', fetchAndDisplayPulverisateur);
-</script>
+    
+        // Fetch product data from Firebase and display on the page
+        function fetchAndDisplayPulverisateur() {
+            const productPath = 'phytosanitaires/acaricides'; // Set the product path here
+            const productRef = ref(database, productPath);
+            
+            onValue(productRef, (snapshot) => {
+                const data = snapshot.val();
+                if (!data) {
+                    console.log(`No data found at ${productPath}`);
+                    return;
+                }
+    
+                const products = Object.entries(data).map(([key, value]) => ({
+                    ...value,
+                    id: key
+                }));
+    
+                const productList = document.getElementById("product");
+                productList.innerHTML = products.map(product => `
+                    <div class="product" data-product-id="${product.id}">
+                         
+                        <img class="image" src="${product.imageSrc}" alt="${product.name}">
+                         
+                          
+                        <button class="view-product-btn" data-product-id="${product.id}" data-product-path="${productPath}">${product.name}</button>
+                    </div>
+                `).join('');
+    
+                const viewProductButtons = document.querySelectorAll(".view-product-btn");
+                viewProductButtons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        const productId = button.dataset.productId;
+                        const productPath = button.dataset.productPath;
+                        window.location.href = `product.html?id=${productId}&path=${productPath}`;
+                    });
+                });
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayPulverisateur);
+    </script>
 
 <footer class="site-footer">
     <div class="container">
