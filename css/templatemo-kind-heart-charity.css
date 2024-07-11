@@ -163,6 +163,25 @@ body {
 .product:hover button {
   background-color: #04365B; /* Darker background on hover */
 }
+.equipment-item .btn{
+  text-transform: capitalize;
+                 position: absolute;
+                 bottom: 0;
+                 left: 50%;
+                 transform: translateX(-50%);
+                 padding: 10px 20px;
+                 width: 100%;
+                 height: 15%;
+                 background-color: #3C7A45;
+                 border: none;
+                 border-radius: 5px;
+                 color: white;
+                 font-size: 16px;
+                 font-weight: bold;
+                 cursor: pointer;
+                 transition: background-color 0.3s ease, transform 0.3s ease;
+                 z-index: 2;
+}
 
 
 
@@ -204,6 +223,9 @@ h2 {
 
 h3 {
   font-size: var(--h3-font-size);
+}
+h3:hover{
+  color :#3C7A45;
 }
 
 h4 {
