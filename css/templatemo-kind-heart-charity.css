@@ -446,10 +446,9 @@ strong {
 -----------------------------------------*/
 .navbar {
   text-align: center;
-  width: 95%;
-  margin: 2%;
-  position: fixed;
-  border-radius: 20px;
+  width: 100%;
+  margin-top: -1%;
+  position:relative;
   background: var(--white-color);
   z-index: 11;
   padding-top: 0;
