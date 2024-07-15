@@ -469,7 +469,7 @@ strong {
 .navbar {
   text-align: center;
   width: 100%;
-  margin-top: -1%;
+  margin-top: 0%;
   position:relative;
   background: var(--white-color);
   z-index: 11;
